@@ -143,13 +143,19 @@ The model cache lives under `~/.cache/huggingface` after the first run.
 
 ## Results
 
-Filled in from `results/metrics.json` after the first end-to-end run. Until
-then, placeholders.
+Stratified 80/20 split on PhraseBank-75agree, 690 test sentences,
+`random_state=42`. Numbers are pulled from `results/metrics.json`.
 
 | Model   | Accuracy | Macro F1 | F1 (negative) | F1 (neutral) | F1 (positive) |
-|---------|----------|----------|---------------|--------------|---------------|
-| VADER   | _tbd_    | _tbd_    | _tbd_         | _tbd_        | _tbd_         |
-| FinBERT | _tbd_    | _tbd_    | _tbd_         | _tbd_        | _tbd_         |
+|---------|---------:|---------:|--------------:|-------------:|--------------:|
+| VADER   |   0.5754 |   0.5181 |        0.3810 |       0.6494 |        0.5240 |
+| FinBERT |   0.9464 |   0.9382 |        0.9318 |       0.9602 |        0.9227 |
+
+The dominant story is the negative-class gap (0.38 → 0.93). That's the
+class where finance-specific contextual cues — *"compressed,"* *"narrowed,"*
+*"missed,"* *"trimmed"* — matter most, and where VADER's general-purpose
+lexicon has the least to say. FinBERT closes the gap because its encoder
+learns those cues from the in-domain pre-training corpus.
 
 ## References
 
