@@ -1,0 +1,25 @@
+# Core ML / NLP stack. Versions pinned to reasonable floors that we know work
+# together on Python 3.10+. CPU-only torch is fine for this project; GPU users
+# can swap in the CUDA wheel — see README.
+torch>=2.2,<3.0
+transformers>=4.40,<5.0
+datasets>=2.18,<3.0
+vaderSentiment>=3.3.2
+nltk>=3.8
+
+# Classical ML / data
+scikit-learn>=1.4
+pandas>=2.1
+numpy>=1.26
+pyarrow>=14.0
+
+# Plotting
+matplotlib>=3.8
+seaborn>=0.13
+
+# Notebook + UX
+jupyter>=1.0
+tqdm>=4.66
+
+# Tests
+pytest>=8.0
